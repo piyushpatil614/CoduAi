@@ -77,7 +77,7 @@ function getTrainAB(fileName) {
             if (train_A[data[0][i]] != undefined) {
                 if (train_A[data[0][i]] >= train_A.HYB) {
                     outputA += ' ' + data[0][i]
-                    distance.push(train_A[data[0][i]])
+                    distance.push(train_A[data[0][i]]-train_A.HYB)
                     stationName.push(data[0][i])
                 }
             }
@@ -85,7 +85,7 @@ function getTrainAB(fileName) {
             else {
                 if (train_B[data[0][i]] >= train_B.HYB) {
                     outputA += ' ' + data[0][i]
-                    distance.push(train_B[data[0][i]])
+                    distance.push(train_B[data[0][i]]-train_B.HYB)
                     stationName.push(data[0][i])
                 }
             }
@@ -96,14 +96,14 @@ function getTrainAB(fileName) {
         for (let j = 2; j < data[1].length; j++) {
             if (train_B[data[1][j]] != undefined && train_B[data[1][j]] >= train_B.HYB) {
                 outputB += ' ' + data[1][j]
-                distance.push(train_B[data[1][j]])
+                distance.push(train_B[data[1][j]]-train_B.HYB)
                 stationName.push(data[1][j])
             }
 
             else {
                 if (train_A[data[1][j]] >= train_A.HYB) {
                     outputB += ' ' + data[1][j]
-                    distance.push(train_A[data[1][j]])
+                    distance.push(train_A[data[1][j]]-train_A.HYB)
                     stationName.push(data[1][j])
                 }
             }
@@ -112,6 +112,10 @@ function getTrainAB(fileName) {
 
         selectionSort(distance, distance.length)
         let outputAB = formOutputAB("DEPARTURE TRAIN_AB ENGINE ENGINE")
+        if(stationName.length===0)
+        {
+            outputAB="JOURNEY_ENDED"
+        }
         return outputA + '\n' + outputB + '\n' + outputAB
     } catch (error) {
         console.log(error)
