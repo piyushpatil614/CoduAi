@@ -1,0 +1,16 @@
+{
+    "name": "family-problem",
+    "version": "1.0.0",
+    "description": "Family Problem",
+    "main": "geektrust.js",
+    "scripts": {
+        "start": "node geektrust.js",
+        "codeCoverageReport": "nyc --reporter=lcov --reporter=text-lcov mocha test/geektrust.test.js",
+        "test": "nyc mocha"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "mocha": "^6.2.0",
+        "nyc": "^15.1.0"
+    }
+}
