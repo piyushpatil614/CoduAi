@@ -2,7 +2,7 @@ const filename = process.argv[2];
 const fs = require('fs');
 
 let train_A = {
-    CHN: 0,
+    CHN: 1000,
     SLM: 350,
     BLR: 550,
     KRN: 900,
